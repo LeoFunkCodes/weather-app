@@ -1,0 +1,63 @@
+.intersection {
+    background-color: dodgerblue;
+}
+
+
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+p {
+    text-wrap: nowrap;
+    overflow: hidden;
+    margin: 0;
+}
+
+th {
+    background-color: lightskyblue;
+}
+
+td:hover {
+    background-color: lightcyan;
+}
+
+td,
+th {
+    margin: 0;
+    border: 1px solid black;
+    padding: 3px;
+}
+
+td:hover,
+th:hover {
+    outline: 2px solid black;
+}
+
+table {
+    table-layout: fixed;
+    width: 60%;
+    margin: 4px auto;
+    border-collapse: collapse;
+}
+
+header,
+footer {
+    background-color: lightskyblue;
+    padding: 6px 8px;
+}
+
+main {
+    margin: 0 24px;
+}
