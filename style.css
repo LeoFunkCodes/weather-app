@@ -1,4 +1,4 @@
-.intersection {
+.table-corner {
     background-color: dodgerblue;
 }
 
@@ -19,18 +19,10 @@ body {
     justify-content: space-between;
 }
 
-p {
-    text-wrap: nowrap;
-    overflow: hidden;
-    margin: 0;
-}
+
 
 th {
     background-color: lightskyblue;
-}
-
-td:hover {
-    background-color: lightcyan;
 }
 
 td,
@@ -40,17 +32,23 @@ th {
     padding: 3px;
 }
 
+table {
+    table-layout: fixed;
+    width: 90%;
+    margin: 16px auto;
+    border-collapse: collapse;
+}
+
+td:hover {
+    background-color: lightcyan;
+}
+
 td:hover,
 th:hover {
     outline: 2px solid black;
 }
 
-table {
-    table-layout: fixed;
-    width: 60%;
-    margin: 4px auto;
-    border-collapse: collapse;
-}
+
 
 header,
 footer {
@@ -60,4 +58,12 @@ footer {
 
 main {
     margin: 0 24px;
+}
+
+
+
+p {
+    text-wrap: nowrap;
+    overflow: hidden;
+    margin: 0;
 }
