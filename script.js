@@ -1,17 +1,19 @@
 const table = document.querySelector("tbody")
 const rows = table.rows
+let position;
+
+let weatherCells = rows[1].children;
+let highCells = rows[2].children;
+let lowCells = rows[3].children;
 
 function gotLocation(pos) {
     console.log("location saved...");
     
-    let weathercells = rows[1].children;
-    let highcells = rows[2].children;
-    let lowcells = rows[3].children;
-
-    loadWeather(pos);
+    position = pos;
+    loadWeather();
 }
 
-function loadWeather(pos, tableItems) {
+function loadWeather() {
     console.log("loading weather...");
 
     // temporary weather object instead of loading real weather
@@ -22,7 +24,7 @@ function loadWeather(pos, tableItems) {
         },
         current: {
             weather: "Sunny",
-            temperature: "19",
+            temperature: 19,
             season: "Summer",
             month: "June"
         },
@@ -31,20 +33,20 @@ function loadWeather(pos, tableItems) {
             {
                 day: "Today",
                 weather: "Sunny",
-                high: "22",
-                low: "15"
+                high: 22,
+                low: 15
             },
             {
                 day: "Tomorrow",
                 weather: "Cloudy",
-                high: "18",
-                low: "12"
+                high: 18,
+                low: 12
             },
             {
                 day: "Wednesday",
                 weather: "Rainy",
-                high: "16",
-                low: "11"
+                high: 16,
+                low: 11
             }
         ]
     }
