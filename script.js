@@ -1,5 +1,7 @@
 const table = document.querySelector("tbody")
 const rows = table.rows
+const currentWeather = document.querySelector("#weather");
+const currentTemperature = document.querySelector("#temperature");
 let position;
 
 let weatherCells = rows[1].children;
@@ -19,14 +21,11 @@ function loadWeather() {
     // temporary weather object instead of loading real weather
     const weather = {
         location: {
-            city: "Stockholm",
-            country: "Sweden"
+            city: "Stockholm"
         },
         current: {
             weather: "Sunny",
-            temperature: 19,
-            season: "Summer",
-            month: "June"
+            temperature: 19
         },
 
         forecast: [
@@ -56,7 +55,24 @@ function loadWeather() {
 }
 
 function displayWeather(weather) {
-    //display weather
+    // current weather
+    currentWeather.textContent = weather.current.weather;
+    currentTemperature.textContent = weather.current.temperature + " degrees";
+
+    // weather table
+    rows[0].children[3].textContent = weather.forecast[2].day;
+
+    rows[1].children[1].textContent = weather.forecast[0].weather;
+    rows[1].children[2].textContent = weather.forecast[1].weather;
+    rows[1].children[3].textContent = weather.forecast[2].weather;
+
+    rows[2].children[1].textContent = weather.forecast[0].high;
+    rows[2].children[2].textContent = weather.forecast[1].high;
+    rows[2].children[3].textContent = weather.forecast[2].high;
+
+    rows[3].children[1].textContent = weather.forecast[0].low;
+    rows[3].children[2].textContent = weather.forecast[1].low;
+    rows[3].children[3].textContent = weather.forecast[2].low;
 }
 
 navigator.geolocation.getCurrentPosition(gotLocation);
