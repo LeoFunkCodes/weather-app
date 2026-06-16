@@ -2,12 +2,40 @@ const table = document.querySelector("tbody")
 const rows = table.rows
 const currentWeather = document.querySelector("#weather");
 const currentTemperature = document.querySelector("#temperature");
+
+const codes = [
+        [0, "Sunny", "☀️", "🌙"],
+        [1, "Mainly Sunny", "🌤️", "🌙"],
+        [2, "Partly Cloudy", "⛅", "☁️"],
+        [3, "Cloudy", "☁️", "☁️"],
+        [45, "Foggy", "🌫️", "🌫️"],
+        [48, "Rime Fog", "🌫️", "🌫️"],
+        [51, "Light Drizzle", "🌦️", "🌧️"],
+        [53, "Moderate Drizzle", "🌧️", "🌧️"],
+        [55, "Dense Drizzle", "🌧️", "🌧️"],
+        [56, "Light Freezing", "🥶", "🥶"],
+        [57, "Dense Freezing", "🥶", "🥶"],
+        [61, "Light Rain", "🌦️", "🌧️"],
+        [63, "Moderate Rain", "🌧️", "🌧️"],
+        [65, "Heavy Rain", "⛈️", "⛈️"],
+        [66, "Freezing Rain", "🧊", "🧊"],
+        [67, "Heavy Freezing", "🧊", "🧊"],
+        [71, "Light Snow", "🌨️", "🌨️"],
+        [73, "Moderate Snow", "❄️", "❄️"],
+        [75, "Heavy Snow", "❄️", "❄️"],
+        [77, "Snow Grains", "🌨️", "🌨️"],
+        [80, "Light Showers", "🌦️", "🌧️"],
+        [81, "Moderate Showers", "🌧️", "🌧️"],
+        [82, "Violent Showers", "⛈️", "⛈️"],
+        [85, "Snow Showers", "🌨️", "🌨️"],
+        [86, "Heavy Snow", "❄️", "❄️"],
+        [95, "Thunderstorm", "🌩️", "🌩️"],
+        [96, "Light Hail", "⛈️", "⛈️"],
+        [99, "Heavy Hail", "⛈️", "⛈️"]
+    ];
+
 let latitude;
 let longitude;
-
-let weatherCells = rows[1].children;
-let highCells = rows[2].children;
-let lowCells = rows[3].children;
 
 async function gotLocation(pos) {
     console.log("location saved...");
@@ -90,37 +118,6 @@ function displayWeather(weather) {
 }
 
 function getWeatherFromCode(code) {
-    let codes = [
-        [0, "Sunny", "☀️", "🌙"],
-        [1, "Mainly Sunny", "🌤️", "🌙"],
-        [2, "Partly Cloudy", "⛅", "☁️"],
-        [3, "Cloudy", "☁️", "☁️"],
-        [45, "Foggy", "🌫️", "🌫️"],
-        [48, "Rime Fog", "🌫️", "🌫️"],
-        [51, "Light Drizzle", "🌦️", "🌧️"],
-        [53, "Moderate Drizzle", "🌧️", "🌧️"],
-        [55, "Dense Drizzle", "🌧️", "🌧️"],
-        [56, "Light Freezing", "🥶", "🥶"],
-        [57, "Dense Freezing", "🥶", "🥶"],
-        [61, "Light Rain", "🌦️", "🌧️"],
-        [63, "Moderate Rain", "🌧️", "🌧️"],
-        [65, "Heavy Rain", "⛈️", "⛈️"],
-        [66, "Freezing Rain", "🧊", "🧊"],
-        [67, "Heavy Freezing", "🧊", "🧊"],
-        [71, "Light Snow", "🌨️", "🌨️"],
-        [73, "Moderate Snow", "❄️", "❄️"],
-        [75, "Heavy Snow", "❄️", "❄️"],
-        [77, "Snow Grains", "🌨️", "🌨️"],
-        [80, "Light Showers", "🌦️", "🌧️"],
-        [81, "Moderate Showers", "🌧️", "🌧️"],
-        [82, "Violent Showers", "⛈️", "⛈️"],
-        [85, "Snow Showers", "🌨️", "🌨️"],
-        [86, "Heavy Snow", "❄️", "❄️"],
-        [95, "Thunderstorm", "🌩️", "🌩️"],
-        [96, "Light Hail", "⛈️", "⛈️"],
-        [99, "Heavy Hail", "⛈️", "⛈️"]
-    ];
-
     let current = codes.find(row => row[0] === code) || [0, "Sunny", "☀️", "🌙"];
     const isDay = new Date().getHours() >= 7 && new Date().getHours() < 19;
 
