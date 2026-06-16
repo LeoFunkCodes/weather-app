@@ -29,7 +29,7 @@ td,
 th {
     margin: 0;
     border: 1px solid black;
-    padding: 3px;
+    padding: var(--parent-padding, 3px);
 }
 
 table {
@@ -46,6 +46,10 @@ td:hover {
 td:hover,
 th:hover {
     outline: 2px solid black;
+}
+
+tr:first-child {
+    --parent-padding: 8px;
 }
 
 
